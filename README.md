@@ -38,7 +38,7 @@ cypress.config.js  # Configurações do Cypress
 
 ## 🧪 Exemplos de Testes
 
-### 1️⃣ Marcar um tipo de atendimento
+### 1️⃣ Testes de Formulário
 ```javascript
 Verifica o título da aplicação
 it('verifica o título da aplicação', () => {
