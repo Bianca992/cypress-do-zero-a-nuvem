@@ -1,28 +1,71 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+Projeto de Teste Automatizado – Cypress
+Sobre o Projeto
 
-👋 Seja bem-vindo(a)!
+Este projeto foi desenvolvido como parte do meu aprendizado em automação de testes com Cypress, com o objetivo de automatizar testes de funcionalidades web, garantindo que os elementos e fluxos de uma aplicação funcionem corretamente.
+Objetivos de Aprendizado
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Durante o desenvolvimento deste projeto, aprendi a:
 
-## O que você vai aprender?
+Configurar um projeto Cypress do zero.
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+Visitar páginas locais e remotas.
 
-## Vamos começar?
+Interagir com os elementos mais comuns encontrados em aplicações web.
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+Testar upload de arquivos.
 
-___
+Realizar diversas verificações de resultados esperados.
 
-Este é um curso da **Escola Talking About Testing**.
+Criar comandos customizados para reutilização de código.
+
+Lidar com links que abrem em outra aba do navegador.
+
+Executar testes simulando as dimensões de dispositivos móveis.
+
+Resolver problemas de diferentes formas, explorando a API do Cypress
+.
+
+Criar uma documentação mínima para testes automatizados.
+
+Executar testes em um workflow de integração contínua sempre que mudanças ocorrem no código.
+
+Integrar o workflow com o Cypress Cloud, gerenciando testes na nuvem.
+
+Estrutura do Projeto
+
+cypress/
+ ├─ e2e/           # Testes automatizados
+ ├─ fixtures/      # Arquivos de teste (ex: dados de entrada)
+ ├─ support/       # Comandos customizados e configurações globais
+cypress.config.js  # Configurações do Cypress
+
+
+Exemplos de Testes
+
+Marcar um tipo de atendimento
+cy.get('input[type="radio"][value="feedback"]').check()
+
+Marcar todos os tipos de atendimento
+cy.get('input[type="radio"]').each(typeOfservice => {
+  cy.wrap(typeOfservice).check().should('be.checked')
+})
+
+Política de Privacidade (abrindo na mesma aba)
+cy.contains('a','Política de Privacidade')
+  .invoke('removeAttr','target')
+  .click()
+cy.contains('h1','CAC TAT - Política de Privacidade').should('be.visible')
+
+
+Boas Práticas Aplicadas
+
+Uso de seletores precisos (id, class, atributo) para evitar falhas.
+
+Validação após cada ação (should, and) para garantir confiabilidade.
+
+Testes independentes e organizados para facilitar manutenção.
+
+Conclusão
+
+Este projeto consolidou meu conhecimento em Cypress e me permitiu aplicar técnicas de automação de testes, integrando aprendizado teórico e prático. Além disso, desenvolvi habilidades em documentação, execução de testes em CI/CD e exploração da API do Cypress.
+
