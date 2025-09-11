@@ -62,8 +62,8 @@ Exibe mensagem de erro com email inválido – validação de erro:
 it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
   cy.get('#firstName').type('Bianca')
   cy.get('#lastName').type('Netto Martins')
-  cy.get('#email').type('nettomartinsb@gmail,com')
-  cy.get('#phone').type('51999876617')
+  cy.get('#email').type('nettob@gmail,com')
+  cy.get('#phone').type('51999999999')
   cy.get('#open-text-area').type('Teste.')
   cy.contains('button','Enviar').click()
   cy.get('.error').should('be.visible')
