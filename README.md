@@ -50,8 +50,8 @@ Preenche os campos obrigatórios e envia o formulário – mostra manipulação 
 it('preenche os campos obrigatórios e envia o formulário', () => {
   cy.get('#firstName').type('Bianca')
   cy.get('#lastName').type('Netto Martins')
-  cy.get('#email').type('nettomartinsb@gmail.com')
-  cy.get('#phone').type('51999876617')
+  cy.get('#email').type('nettob@gmail.com')
+  cy.get('#phone').type('51999999999')
   cy.get('#open-text-area').type('Olá, Bianca! Que bom que você chegou até aqui.')
   cy.contains('button','Enviar').click()
   cy.get('.success').should('be.visible')
