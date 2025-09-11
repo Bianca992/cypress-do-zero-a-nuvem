@@ -52,19 +52,19 @@ Política de Privacidade (abrindo na mesma aba)
 cy.contains('a','Política de Privacidade')
   .invoke('removeAttr','target')
   .click()
-cy.contains('h1','CAC TAT - Política de Privacidade').should('be.visible')
+cy.contains('h1','CAC TAT - Política de Privacidade').should('be.visible')```**
+
+```
+
+## ✅ **Boas Práticas Aplicadas**
+
+- Uso de seletores precisos (id, class, atributo) para evitar falhas.
+- Validação após cada ação (should, and) para garantir confiabilidade.
+- Testes independentes e organizados para facilitar manutenção.
 
 ---
 
-## Boas Práticas Aplicadas
+## 🏁 Conclusão do Curso
 
-Uso de seletores precisos (id, class, atributo) para evitar falhas.
-
-Validação após cada ação (should, and) para garantir confiabilidade.
-
-Testes independentes e organizados para facilitar manutenção.
-
-## Conclusão do Curso
-
-Este projeto consolidou meu conhecimento em Cypress e me permitiu aplicar técnicas de automação de testes, integrando aprendizado teórico e prático. Além disso, desenvolvi habilidades em documentação, execução de testes em CI/CD e exploração da API do Cypress.
-
+Este projeto consolidou meu conhecimento em Cypress e me permitiu aplicar técnicas de automação de testes, integrando aprendizado teórico e prático.  
+Além disso, desenvolvi habilidades em documentação, execução de testes em CI/CD e exploração da API do Cypress.
