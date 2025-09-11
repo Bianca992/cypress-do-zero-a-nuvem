@@ -40,19 +40,34 @@ cypress.config.js  # Configurações do Cypress
 
 ### 1️⃣ Marcar um tipo de atendimento
 ```javascript
-cy.get('input[type="radio"][value="feedback"]').check()
-
-
-Marcar todos os tipos de atendimento
-cy.get('input[type="radio"]').each(typeOfservice => {
-  cy.wrap(typeOfservice).check().should('be.checked')
+Verifica o título da aplicação
+it('verifica o título da aplicação', () => {
+  cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT')
 })
 
-Política de Privacidade (abrindo na mesma aba)
-cy.contains('a','Política de Privacidade')
-  .invoke('removeAttr','target')
-  .click()
-cy.contains('h1','CAC TAT - Política de Privacidade').should('be.visible')```**
+
+Preenche os campos obrigatórios e envia o formulário – mostra manipulação de inputs e envio:
+it('preenche os campos obrigatórios e envia o formulário', () => {
+  cy.get('#firstName').type('Bianca')
+  cy.get('#lastName').type('Netto Martins')
+  cy.get('#email').type('nettomartinsb@gmail.com')
+  cy.get('#phone').type('51999876617')
+  cy.get('#open-text-area').type('Olá, Bianca! Que bom que você chegou até aqui.')
+  cy.contains('button','Enviar').click()
+  cy.get('.success').should('be.visible')
+})
+
+
+Exibe mensagem de erro com email inválido – validação de erro:
+it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
+  cy.get('#firstName').type('Bianca')
+  cy.get('#lastName').type('Netto Martins')
+  cy.get('#email').type('nettomartinsb@gmail,com')
+  cy.get('#phone').type('51999876617')
+  cy.get('#open-text-area').type('Teste.')
+  cy.contains('button','Enviar').click()
+  cy.get('.error').should('be.visible')
+})
 
 ```
 
